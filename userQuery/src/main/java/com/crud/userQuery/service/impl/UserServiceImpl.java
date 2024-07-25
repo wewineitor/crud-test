@@ -15,6 +15,13 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+
+    /**
+     * Obtiene todos los usuarios.
+     *
+     * @return Una lista de todos los usuarios.
+     * @throws UserServiceException Si ocurre un error al recuperar los usuarios.
+     */
     @Override
     public List<User> getAllUsers() {
         try {
@@ -24,6 +31,13 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * Obtiene un usuario por su ID.
+     *
+     * @param id El ID del usuario a recuperar.
+     * @return El usuario con el ID proporcionado.
+     * @throws UserNotFoundException Si no se encuentra un usuario con el ID proporcionado.
+     */
     @Override
     public User getUserById(Long id) {
         return userRepository.findById(id)

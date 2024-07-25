@@ -1,0 +1,18 @@
+services:
+  query:
+    image: openjdk:21-jdk
+    container_name: query
+    ports:
+      - 8080:8080
+    volumes:
+      - ./userQuery/target:/app
+    command: java -jar /app/userQuery-0.0.1-SNAPSHOT.jar
+  management:
+    image: openjdk:21-jdk
+    container_name: management
+    ports:
+      - 8081:8081
+    volumes:
+      - ./userManagement/target:/app
+    command: java -jar /app/userManagement-0.0.1-SNAPSHOT.jar
+
